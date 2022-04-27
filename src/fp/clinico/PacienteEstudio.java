@@ -23,7 +23,7 @@ public record PacienteEstudio(String id, String genero, Double edad, Boolean hip
 			TipoResidencia tipoDeResidencia, Double nivelMedioGlucosa) {
 	//RESTRICCIONES
 	Checkers.check("La edad tiene que ser mayor o igual que cero y menor o igual que 130", edad>=0 && edad<=130);
-	Checkers.check("El nivel medio de glucosa tiene que ser mayor o igual que cero", nivelMedioGlucosa>=0);
+	Checkers.check("El nivel medio de glucosa tiene que ser mayor o igual que cero", nivelMedioGlucosa>=0.0);
 	//
 	PacienteEstudio pa = new PacienteEstudio (id, genero, edad, hipertension, enfermedadDelCorazon, tipoDeResidencia, nivelMedioGlucosa);
 	return pa;
@@ -34,11 +34,12 @@ public record PacienteEstudio(String id, String genero, Double edad, Boolean hip
 	 * @return Obtiene factorDeRiesgo a partir de edad e hipertension
 	 */
 	public Boolean factorDeRiesgo() {
-		Boolean factorDeRiesgo = null;
-		if(edad>40 && hipertension==true) {
-			factorDeRiesgo = true;
-		}
-		return factorDeRiesgo;
+//		Boolean factorDeRiesgo = null;
+//		if(edad>40 && hipertension==true) {
+//			factorDeRiesgo = true;
+//		}
+//		return factorDeRiesgo;
+		return edad>40.0 && hipertension==true;
 	}
 	
 	//Representación como cadena

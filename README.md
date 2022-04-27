@@ -7,24 +7,57 @@ El proyecto consiste en programar una serie de tipos siguiendo un diseño determ
 ## Estructura de las carpetas del proyecto
 
 * **src**: Contiene los diferentes archivos que forman parte del proyecto. Debe estar estructurado en los siguentes paquetes
-  * **fp.clinico**: Paquete que contiene los tipos Paciente, PacienteEstudio, Persona y TipoResidencia(enumerado) del proyecto.
-  * **fp.farmaceutico**: Paquete que contiene las clases FactoriaMedicamentos, Medicamento y el enumerado TipoMedicamento del proyecto.
-  * **fp.farmaceutico.test**: Paquete que contiene la clase de test TestFactoriaMedicamentos
+  * **fp.clinico**: Paquete que contiene los tipos Paciente, PacienteEstudio, Persona, TipoResidencia(enumerado), EstudioClinico,  EstudioClinicoBucles, EstudioClinicoStream y TestEstudioClinicoBucles del proyecto.
+  * **fp.farmaceutico**: Paquete que contiene las clases FactoriaMedicamentos,FactoriaMedicamentos2, Medicamento y el enumerado TipoMedicamento del proyecto.
+  * **fp.farmaceutico.test**: Paquete que contiene las clases de test TestFactoriaMedicamentos y TestFactoriaMedicamentos2
   * **fp.utiles**:  Paquete que contiene las clases de utilidad.
-  * **fp.vacunas**:  Paquete que contiene el tipo Vacunacion.
+  * **fp.vacunas**:  Paquete que contiene los tipos Vacunacion, FactoriaVacunaciones y TestFactoriaVacunaciones.
 * **/data**: Contiene el dataset o datasets del proyecto (de momento no se utiliza)
-    * **\<dataset1.csv\>**: Añade una descripción genérica del dataset.
-    * **\<dataset2.csv\>**: Añade una descripción del resto de datasets que puedas tener.
+    * **\<ccaa_vacunas_3.csv\>**: contiene la información sobre objetos del tipo Vacunacion.
+    * **\<estudio_clinico.csv\>**:  contiene la información sobre objetos del tipo PacienteEstudio. 
+    * **\<medicamentos.csv\>**: contiene la información sobre objetos del tipo Medicamento. 
     
-## Estructura del *dataset(NO UTILIZADO)* 
+## Estructura del *dataset estudio_clinico* 
 
-Aquí debes describir la estructura del dataset explicando qué representan los datos que contiene y la descripción de cada una de las columnas. Incluye también la URL del dataset original.
+URL del dataset original: https://ev.us.es/bbcswebdav/pid-2895832-dt-content-rid-33259488_1/xid-33259488_1
 
-El dataset está compuesto por \<N\> columnas, con la siguiente descripción:
+El dataset está compuesto por 7 columnas, con la siguiente descripción:
 
-* **\<columna 1>**: de tipo \<tipo\>, representa....
-* **\<columna 2>**: de tipo \<tipo\>, representa....
-....
+* **id**: de tipo String.
+* **genero**: de tipo String.
+* **edad**: de tipo Double.
+* **hipertension**: de tipo Boolean.
+* **enfermedadDelCorazon**: de tipo Boolean.
+* **TipoResidencia**: de tipo TipoResidencia.
+* **nivelMedioGlucosa**: de tipo Double.
+
+## Estructura del *dataset medicamentos* 
+
+URL del dataset original: https://ev.us.es/bbcswebdav/pid-2895832-dt-content-rid-33259489_1/xid-33259489_1
+
+El dataset está compuesto por 7 columnas, con la siguiente descripción:
+
+* **Nombre_medicamento**: de tipo String.
+* **Tipo_medicamento**: de tipo TipoMedicamento
+* **Codigo_enfermedad**: de tipo String.
+* **Farmaceutica**: de tipo String.
+* **Puntuacion**: de tipo Double.
+* **Indice_somatico**: de tipo Integer.
+* **Fecha_catalogo**: de tipo LocalDate.
+
+## Estructura del *dataset cca_vacunas* 
+
+URL del dataset original: https://ev.us.es/bbcswebdav/pid-2895832-dt-content-rid-33259487_1/xid-33259487_1
+
+El dataset está compuesto por 7 columnas, con la siguiente descripción:
+
+* **Fecha_publicación**: de tipo LocalDate.
+* **CCAA**: de tipo String.
+* **Pfizer**: de tipo Integer.
+* **Moderna**: de tipo Integer.
+* **AstraZeneca**: de tipo Integer.
+* **Janssen**: de tipo Integer.
+* **Personas_pauta_completa**: de tipo Integer.
 
 ## Tipos implementados
 
@@ -181,6 +214,67 @@ la propiedad).
 
 **Orden natural**: por nombre del medicamento y en caso de igualdad por la farmacéutica.
 
+
+
+
+
+### EstudioClinico
+Tipo programado como interfaz.
+
+
+
+
+### EstudioClinicoBucles
+Tipo programado como clase.
+
+**Métodos**:
+- numeroPacientes
+- incluyePaciente
+- incluyePacientes
+- eliminaPaciente
+- Boolean estaPaciente
+- borraEstudio
+- EstudioClinico of
+- List<PacienteEstudio> leeFichero
+- Boolean todosPacienteSonDelTipo
+- Boolean existeAlgunPacienteDelTipo
+- Integer numeroPacientesFactorRiesgo
+- Double edadMediaPacientesConFactorRiesgo
+- List<PacienteEstudio> filtraPacientesPorEdad
+- Map<String, List<Paciente>> agruparPacientesEdadMayorQuePorGenero
+- Map<String, Long> numeroPacientesPorGenero
+- Map<String, Double> edadMediaPacientesPorPorGenero
+
+
+
+
+### EstudioClinicoStream
+Tipo programado como clase.
+
+**Métodos**:
+Los Métodos se han programado como Stream.
+- numeroPacientes
+- incluyePaciente
+- incluyePacientes
+- eliminaPaciente
+- Boolean estaPaciente
+- borraEstudio
+- EstudioClinico of
+- List<PacienteEstudio> leeFichero
+- Boolean todosPacienteSonDelTipo
+- Boolean existeAlgunPacienteDelTipo
+- Integer numeroPacientesFactorRiesgo
+- Double edadMediaPacientesConFactorRiesgo
+- List<PacienteEstudio> filtraPacientesPorEdad
+- Map<String, List<Paciente>> agruparPacientesEdadMayorQuePorGenero
+- Map<String, Long> numeroPacientesPorGenero
+- Map<String, Double> edadMediaPacientesPorPorGenero
+
+
+
+
+### TestEstudioClinicoBucles
+Clase para realizar los test del tipo EstudioClinicoBucles.
 
 
 
