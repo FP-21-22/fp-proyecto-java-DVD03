@@ -7,11 +7,11 @@ El proyecto consiste en programar una serie de tipos siguiendo un diseño determ
 ## Estructura de las carpetas del proyecto
 
 * **src**: Contiene los diferentes archivos que forman parte del proyecto. Debe estar estructurado en los siguentes paquetes
-  * **fp.clinico**: Paquete que contiene los tipos Paciente, PacienteEstudio, Persona, TipoResidencia(enumerado), EstudioClinico,  EstudioClinicoBucles, EstudioClinicoStream y TestEstudioClinicoBucles del proyecto.
-  * **fp.farmaceutico**: Paquete que contiene las clases FactoriaMedicamentos,FactoriaMedicamentos2, Medicamento y el enumerado TipoMedicamento del proyecto.
+  * **fp.clinico**: Paquete que contiene los tipos Paciente, PacienteEstudio, Persona, TipoResidencia(enumerado), EstudioClinico,  EstudioClinicoBucles, EstudioClinicoStream, TestEstudioClinicoBucles y TestEstudioClinico del proyecto.
+  * **fp.farmaceutico**: Paquete que contiene las clases FactoriaMedicamentos,FactoriaMedicamentos2, Medicamento, ListadoMedicamentos, TestListadoMedicamentos y el enumerado TipoMedicamento del proyecto.
   * **fp.farmaceutico.test**: Paquete que contiene las clases de test TestFactoriaMedicamentos y TestFactoriaMedicamentos2
   * **fp.utiles**:  Paquete que contiene las clases de utilidad.
-  * **fp.vacunas**:  Paquete que contiene los tipos Vacunacion, FactoriaVacunaciones y TestFactoriaVacunaciones.
+  * **fp.vacunas**:  Paquete que contiene los tipos Vacunacion, Vacunaciones, FactoriaVacunaciones, TestFactoriaVacunaciones y TestVacunaciones.
 * **/data**: Contiene el dataset o datasets del proyecto (de momento no se utiliza)
     * **\<ccaa_vacunas_3.csv\>**: contiene la información sobre objetos del tipo Vacunacion.
     * **\<estudio_clinico.csv\>**:  contiene la información sobre objetos del tipo PacienteEstudio. 
@@ -273,8 +273,37 @@ Los Métodos se han programado como Stream.
 
 
 
+### Vacunaciones
+Tipo programado como clase.
+
+**Métodos**:
+Los Métodos se han programado como Stream.
+- anyadeVacunacion
+- vacunacionesEntreFechas
+- existeNumPersonasPautaCompletaPorEncimaDe
+- diaMasVacunacionesEn
+- vacunacionesPorFecha
+- maximoNumTotalVacunasporComunidad
+
+
+
+
 ### TestEstudioClinicoBucles
 Clase para realizar los test del tipo EstudioClinicoBucles.
+
+
+
+
+### ListadoMedicamentos
+Tipo programado como clase.
+
+**Métodos**:
+Los Métodos se han programado como Stream.
+- existeMedicamentoSegunTipoAnteriorA
+- nombreMedicamentosPuntuacionMayorA
+- nombreMedicamentoMayorIndiceSomaticoSegunTipoMedicamento
+- agrupaTipoMedicamentoSegunPuntuacionMedia
+- fechaCatalogoMasFrecuente
 
 
 

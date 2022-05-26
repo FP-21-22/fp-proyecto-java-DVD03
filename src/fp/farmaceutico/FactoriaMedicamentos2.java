@@ -7,6 +7,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 
 
 /**
@@ -33,6 +35,22 @@ public class FactoriaMedicamentos2 {
 			cont++;
 		}
 		return res;
+	}
+	
+	public static ListadoMedicamentos leeFicheroStM(String nombreFichero){
+		  ListadoMedicamentos res=null;
+		  try {
+		  List<Medicamento> medicamentoss=Files.lines(Paths.get(nombreFichero))
+		  .skip(1)
+		  .map(FactoriaMedicamentos2::parse)
+		  .collect(Collectors.toList());
+
+		  res=new ListadoMedicamentos(medicamentoss);
+		  } catch(IOException e) {
+		  System.out.println("Fichero no encontrado: "+nombreFichero);
+		  e.printStackTrace();
+		  }
+		  return res;
 	}
 	
 	public static Medicamento parse(String text) {
