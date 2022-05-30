@@ -19,7 +19,7 @@ import java.util.stream.Stream;
  */
 public class EstudioClinicoStream implements EstudioClinico {
 	
-	private List<PacienteEstudio> pacienteEstudioLista;
+	protected List<PacienteEstudio> pacienteEstudioLista;
 //	
 	public EstudioClinicoStream() {
 		pacienteEstudioLista = new ArrayList<PacienteEstudio>();
