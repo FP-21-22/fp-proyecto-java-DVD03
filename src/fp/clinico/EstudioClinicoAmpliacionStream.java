@@ -111,11 +111,20 @@ public class EstudioClinicoAmpliacionStream extends EstudioClinicoStream impleme
 	@Override
 	public String generoEdadMaximaPacientesPorGenero() {
 		//
-		return super.pacienteEstudioLista.stream().
-				collect(Collectors.groupingBy(PacienteEstudio::genero,
-						Collectors.collectingAndThen(Collectors.maxBy(
-								Comparator.comparing(PacienteEstudio::edad)), 
-								x->x.get()))).toString();
+		Map<String, Double> mapaAux = super.pacienteEstudioLista.stream().
+				collect(Collectors.groupingBy(PacienteEstudio::genero, 
+						Collectors.collectingAndThen(Collectors.maxBy(Comparator.comparing(PacienteEstudio::edad)),
+								x->x.get().edad())));
+		
+		Comparator<Map.Entry<String, Double>> cmp = (x,y)->x.getValue().
+				compareTo(y.getValue());
+		
+		return mapaAux.
+				entrySet().
+				stream().
+				max(cmp).
+				get().
+				getKey();
 	}
 
 
